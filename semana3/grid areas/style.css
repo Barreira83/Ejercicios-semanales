@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo contenedor principal */
+main {
+  background-color: beige;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "content1"
+    "content2"
+    "footer";
+
+  /* Crea aquí la cuadrícula */
+    grid-template-rows: 6.5rem 4.5rem auto auto 4rem;
+
+}
+
+/* Estilo texto de las secciones */
+main > * {
+  align-items: center;
+  border: 2px solid black;
+  color: #fff;
+  display: flex;
+  font-family: monospace;
+  justify-content: center;
+}
+
+/* Estilo de cada elemento */
+/* Añade a cada uno el área correspondiente */
+header {
+  background-image: linear-gradient(45deg, #7895b2 100%, #aebdca 0%);
+
+    grid-area: header;   
+}
+
+nav {
+  background-image: linear-gradient(
+    130deg,
+    #7895b2 0%,
+    #aebdca 45%,
+    #7895b2 100%
+  );  
+    grid-area: nav; 
+    
+}
+
+aside {
+  background-image: linear-gradient(130deg, #aebdca 0%, #7895b2 100%);
+  display: none;
+
+    grid-area: aside;
+}
+
+section {
+  background-image: linear-gradient(130deg, #aebdca 0%, #7895b2 100%);
+}
+
+section:first-of-type {
+  grid-area: content1;
+
+}
+
+section:last-of-type {
+  grid-area: content2;
+}
+
+footer {
+  background-image: linear-gradient(45deg, #7895b2 100%, #aebdca 0%);
+  grid-area: footer;
+}
+
+/* Media query pantalla > 600px */
+@media (min-width: 600px) {
+  main {
+    /* Haz aquí las modificaciones necesarias en la cuadrícula y la disposición de las áreas */
+  
+    
+    grid-template-areas:
+      "header header"      
+      "nav nav"      
+      "aside content1"      
+      "aside content2"      
+      "footer footer"     
+      ;
+    grid-template-columns: 12.5rem auto;
+  }
+
+  #sidebar {
+    background-image: linear-gradient(130deg, #aebdca 0%, #7895b2 90%);
+    display: grid;    
+  }
+}

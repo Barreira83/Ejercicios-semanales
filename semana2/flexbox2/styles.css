@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  
+
+  }
+  
+  /* Escribe aquí las reglas*/
+  /* Los ítems de la lista deberán disponerse de forma horizontal, no vertical. */
+
+
+
+menu {
+    display:flex;
+    flex-direction: row;   
+    /* La lista debe ocupar todo el ancho de la página, sin quedar huecos entre elementos. */   
+    
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    
+
+  
+
+}
+    /* Los ítems de la lista deben cambiar de estilo al pasar el cursor sobre ellos, como por ejemplo un cambio en el color de fondo. */
+menu li:hover {
+  background-color: rgb(41, 169, 18);
+}
+
+menu li{
+  display: flex;
+  flex-grow: 1;
+  
+}
+a{
+display: flex;
+justify-content:center;  
+flex-grow: 1;
+
+}
+
+  /* Asegúrate de que los enlaces ocupen todo el espacio (vertical y horizontal)  de cada ítem de la lista, esto hará que sea más fácil para los usuarios hacer clic en ellos.  */ 

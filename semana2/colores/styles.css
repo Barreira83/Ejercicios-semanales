@@ -1,0 +1,16 @@
+section p:first-child {
+    background-color: orange;
+}
+
+section p:nth-child(2) {
+    background-color: rgb(255,165,0, 80%);
+}
+section p:nth-child(3) {
+    background-color: rgb(255,165,0, 60%);
+}
+section p:nth-child(4) {
+    background-color: rgb(255,165,0, 40%);
+}
+section p:nth-child(5) {
+    background-color: rgb(255,165,0, 20%);
+}
