@@ -185,18 +185,59 @@ const rickandmortyCharacters = [
   ];
 
   // Escribe aquí tu código
-  let nuevoArray= [];
-for(let i=0;i<rickandmortyCharacters.length; i++){
-    for (let item of rickandmortyCharacters){
-      let {name, status, species, gender}=item;
-      nuevoArray[i]={
-        name: name,
-        status: status,
-        species: species,
-        gender: gender
-      }
-    }
+
+//No Resuelto por mi-----------------------------------------------
+// let nuevoArr = new Map();
+//   for (let item of rickandmortyCharacters){
+    
+//     nuevoArr = rickandmortyCharacters.map(item =>
+//       let {name, status, species, gender}=item;
+//             nuevoArr={
+//               name: name,
+//               status: status,
+//               species: species,
+//               gender: gender}
+//       )
+//     }   
+//   console.log(nuevoArr);
+
+//Resuelto por luis-----------------------------------------------
+// const nuevoArray = rickandmortyCharacters.map((item) => {
+//   return {
+//     name: item.name,
+//     status: item.status,
+//     species: item.species,
+//     gender: item.gender,
+//   };
+// });
+// console.log(nuevoArray);
+
+
+
+//Resuelto por Samuel-----------------------------------------------
+// let nuevoArray= [];
+
+// for(let i=0;i<rickandmortyCharacters.length; i++){
+//   let { name, status, species, gender } = rickandmortyCharacters[i];
+
+//   nuevoArray[i] = { name: name, status: status, species: species, gender: gender }
+// }
+
+// console.log(nuevoArray);
+
+
+//Resuelto por Samuel con for..of e item-----------------------------
+let nuevoArray= [];
+
+for(let item of rickandmortyCharacters){
+  let { name, status, species, gender } = item;
+
+  nuevoArray = { 
+    name: name, 
+    status: status, 
+    species: species, 
+    gender: gender 
+  }
 }
-  console.log(nuevoArray);
 
-
+console.log(nuevoArray);

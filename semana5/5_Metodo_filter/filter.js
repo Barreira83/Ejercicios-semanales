@@ -183,13 +183,20 @@ const rickandmortyCharacters = [
       created: "2017-11-04T20:19:09.017Z",
     },
   ];
+  const nuevoArray = rickandmortyCharacters.map((item) => {
+    return {
+      name: item.name,
+      status: item.status,
+      species: item.species,
+      gender: item.gender,
+    };
+  });
+  //console.log(nuevoArray);
 
-//   const soloVivos= [];
-//   for( let item of rickandmortyCharacters){
-//     if (item.status === "Alive"){
-//         console.log(item);        
-//     }
-//   }
   
-  const soloVivos= rickandmortyCharacters.filter(element => element.status ==="Alive")
+  const soloVivos= nuevoArray.filter(element => 
+    element.status ==="Alive");
   console.log(soloVivos);
+
+
+  //console.log(shortData.filter((shortData) => shortData.status === "Alive"));
