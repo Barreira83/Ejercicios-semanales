@@ -42,7 +42,7 @@ const people = [
     if(edad>=18){
         console.log(`${nombre} es mayor de edad`);
         }else{
-            console.log(`${nombre} es menor de edad`);
+        console.log(`${nombre} es menor de edad`);
         }
   }
 
@@ -50,4 +50,19 @@ const people = [
     mayor18(people[i].name, people[i].age);    
   }
  
-  
+
+  //Resuelto por samu
+
+
+const logIfIsAdult = (name, age)=>{
+  if (eage<18) {
+    console.log(`${name} es menor de edad`);
+  }else{
+    console.log(`${name} es mayor de edad`);
+  }
+}
+
+for(let i=0; i<people.length; i++){
+  const {name, age} = people[i];
+  logIfIsAdult(name, age);
+}

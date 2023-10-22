@@ -200,3 +200,10 @@ const rickandmortyCharacters = [
 
 
   //console.log(shortData.filter((shortData) => shortData.status === "Alive"));
+
+
+  //Resuelto por samu
+
+  const aliveCharacter= nuevoArray.filter((element) => {
+    return element.status ==="Alive"});
+  console.log(aliveCharacter);

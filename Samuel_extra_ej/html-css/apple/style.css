@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ocultar-en-mobile{
+       display: none;
+}
+
+header nav ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    background-color: black;
+}
+
+
+img.bag{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+}
+img.menu{
+    width: 30px;
+    height: 30px;
+}
+img.bag{
+    width: 30px;
+    height: 30px;
+}
+img.apple{
+    width: 30px;
+    height: 30px;
+}
+main article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main article.iphone-13-pro img{
+    max-width: 200px;
+    max-height: 667px;
+    
+    
+}
+main article.iphone-13 img{
+    max-width: 375px;
+    max-height: 667px;
+}
+
+main article.iphone-13-pro h1{
+    font-size: 40px;
+}
+main article.iphone-13 h1{
+    font-size: 40px;
+}

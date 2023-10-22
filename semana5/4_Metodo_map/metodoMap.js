@@ -202,15 +202,15 @@ const rickandmortyCharacters = [
 //   console.log(nuevoArr);
 
 //Resuelto por luis-----------------------------------------------
-// const nuevoArray = rickandmortyCharacters.map((item) => {
-//   return {
-//     name: item.name,
-//     status: item.status,
-//     species: item.species,
-//     gender: item.gender,
-//   };
-// });
-// console.log(nuevoArray);
+const nuevoArray = rickandmortyCharacters.map((item) => {
+  return {
+    name: item.name,
+    status: item.status,
+    species: item.species,
+    gender: item.gender,
+  };
+});
+console.log(nuevoArray);
 
 
 
@@ -226,18 +226,29 @@ const rickandmortyCharacters = [
 // console.log(nuevoArray);
 
 
-//Resuelto por Samuel con for..of e item-----------------------------
-let nuevoArray= [];
+// //Resuelto por Samuel con for..of e item-----------------------------
+// let nuevoArray= [];
 
-for(let item of rickandmortyCharacters){
-  let { name, status, species, gender } = item;
+// for(let item of rickandmortyCharacters){
+//   let { name, status, species, gender } = item;
 
-  nuevoArray = { 
-    name: name, 
-    status: status, 
-    species: species, 
-    gender: gender 
-  }
-}
+//   nuevoArray = { 
+//     name: name, 
+//     status: status, 
+//     species: species, 
+//     gender: gender 
+//   }
+// }
 
-console.log(nuevoArray);
+// console.log(nuevoArray);
+
+
+//Resuelto por Samu en clase
+
+const formated =rickandmortyCharacters.map((character)=>{
+    const {name, status, species, gender}=character;
+
+    return {name, status, species, gender};
+
+})
+console.log(formated);

@@ -23,3 +23,23 @@ const pizzas = [
   }
  
   console.log(combine(pizzas));
+
+
+  //Resuelto por Samu
+  function combine(pizzas) {
+    const combinations=[];
+        for(let i=0;i< pizzas.length; i++ ){
+            const primeraMitad= pizzas[i];
+            for(let j=i+1; j<pizzas.length; j++){
+                const segundaMitad = pizzas[j];
+                //console.log(primeraMitad, segundaMitad);
+                combinations.push(`${primeraMitad} y ${segundaMitad}`);
+
+            }
+        }
+
+
+
+    return combinations;
+  }
+  console.log(combine(pizzas));
