@@ -94,16 +94,74 @@ const salarios = people.map(item => Number(item.salary));//Con Number convierto 
 console.log(salarios);
 
 const salarioMedio =Math.floor((salarios.reduce((acc,b) => acc+b,0))/salarios.length);
-console.log(salarioMedio);
+console.log(`Salario medio: ${salarioMedio}`);
 
 
 // 2) Obtén un array con los mayores de 35 años (mirar objeto Date())
+
 const hoy= new Date();
 const fechaMenos35= hoy.getFullYear()-35;
-console.log(fechaMenos35);
+console.log(`Data nacidos ai 35 anos ${fechaMenos35}`);
+
+
+const arrayAñoNacimiento= people.map((item) => {
+  const anioMenos35= item.DOB.split('/');
+  return Number(anioMenos35[2]);  
+});
+console.log(arrayAñoNacimiento);
+
+const maiores35=[];
+for (let i=0; i<people.length;i++){
+  if(arrayAñoNacimiento[i]< fechaMenos35){
+    maiores35.push(people[i]);
+  }
+}
+console.log(maiores35);
+
+
 
 // 3) Obtén un array con los nombres completos de las personas
+const nombreCompleto = [];
+for(let item of people){
+  nombreCompleto.push(`${item.firstName} ${item.lastName}`);
+}
+console.log(nombreCompleto);
 
 // 4) Ordena el array desde los más jóvenes hasta los más mallores
+const copiaPeople=[...people];
+const ordenadosMenorAMayor= copiaPeople.sort((a,b) => {
+   const yearA= a.DOB.split('/');
+   const anioA=Number(yearA[2]);  
+   const yearB= b.DOB.split('/');
+   const anioB=Number(yearB[2]);  
+
+  if(anioA>anioB){
+    return -1;
+  }
+  if(anioA<anioB){
+    return 1;
+  }
+  if(anioA ===anioB){
+    return 0;
+  }
+});
+console.log(ordenadosMenorAMayor);
+
 
 // 5) ¿Cuánta gente hay en cada departamento?
+
+const gentePorDepartamento= new Map;
+
+for(let item of people){
+    let contador=0;
+  
+    for(let i=0; i<people.length; i++) {
+    
+       if(item.department=== people[i].department){
+         contador++;
+         }
+     }
+   gentePorDepartamento.set(item.department, contador);
+  }
+
+  console.log("Personas por departamento:", gentePorDepartamento);

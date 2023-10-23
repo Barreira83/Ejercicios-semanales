@@ -18,7 +18,7 @@ const firstRound = [
 // El peor equipo es Ciervos Celestes con un total de 10 puntos
 const puntosTotales = firstRound.map((item) => {
   let { scores: puntos } = item;
-  return puntos.reduce((acc, b) => acc + b);
+  return puntos.reduce((acc, b) => acc + b,0);
 });
 console.log(puntosTotales);
 

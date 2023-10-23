@@ -168,7 +168,13 @@ const countries = [
  *  Número total de infectados del array de personas.
  *
  */
-
+let infectados=0;
+for(let item of persons){
+  if(item.infected){
+    infectados++;
+  }
+}
+console.log(`El numero total de infectados es ${infectados}`);
 /**
  *  ###########################
  *  ## E J E R C I C I O   2 ##
@@ -177,6 +183,13 @@ const countries = [
  *  Número total de infectados en el array de países.
  *
  */
+let totalInfectadosPaises=0;
+
+for(let i=0; i<countries.length; i++){
+  totalInfectadosPaises +=countries[i].infected;
+}
+
+console.log(`El numero total de infectados es ${totalInfectadosPaises}`);
 
 /**
  *  ###########################
@@ -186,6 +199,15 @@ const countries = [
  *  País con más infectados.
  *
  */
+const arrayInfectados= countries.map(item => item.infected);
+console.log(arrayInfectados);
+const mayorNumeroDeInfectados= arrayInfectados.reduce((a,b)=> (a>b)? a:b);
+
+console.log(mayorNumeroDeInfectados);
+const indicePais= arrayInfectados.findIndex(e => e===mayorNumeroDeInfectados);
+
+console.log(indicePais);
+console.log(`El pais con mas infectados es ${countries[indicePais].name}`);
 
 /**
  *  ###########################
@@ -195,6 +217,8 @@ const countries = [
  *  Array con el nombre de todas las mascotas.
  *
  */
+const nombresMascotas= pets.map(item => { return item.petName});
+console.log(nombresMascotas);
 
 /**
  *  ###########################
@@ -204,6 +228,21 @@ const countries = [
  *  Array de españoles con perro.
  *
  */
+const arrayDeEspañoles= persons.filter(item => item.code==='ES');
+console.log(arrayDeEspañoles);
+let contadorDePerros=0;
+for (let i=0; i<arrayDeEspañoles.length; i++){
+  
+  for(let item of pets){
+    if (item.petName ===arrayDeEspañoles[i].petName){
+      if(item.type === "perro"){
+        contadorDePerros++;
+      }
+    
+    }
+  }
+}
+console.log(`El numero de españoles con perro es ${contadorDePerros}`);
 
 /**
  *  ###########################
@@ -225,6 +264,25 @@ const countries = [
  *
  */
 
+//Este ejercicio me modifica el array original persons , YA NO---------------------------------------------------------------------------------------------------
+
+//const fichaConMascota = [...persons];//Copia superficial
+const fichaConMascota= JSON.parse(JSON.stringify(persons));//copia profunda, NO MODIFICA ORIGINAL
+
+for(let i=0; i<fichaConMascota.length; i++){
+
+  for(let element of pets){
+    
+    if(fichaConMascota[i].petName===element.petName)
+       //fichaConMascota[i].petName= {'petName': element.petName, 'type': element.type};//Tambien asi
+      fichaConMascota[i].petName= element;
+  }
+};
+
+console.log(fichaConMascota);
+
+//Este ejercicio me modifica el array original persons -----------------------------------------------------------------------------------------------------
+
 /**
  *  ###########################
  *  ## E J E R C I C I O   7 ##
@@ -234,6 +292,11 @@ const countries = [
  *
  */
 
+const arrayDePatas= animals.map(item => item.legs);
+//console.log(arrayDePatas);
+const totalDePatas= arrayDePatas.reduce((acc,b) => acc +b);
+console.log(`El total de patas de las mascotas es: ${totalDePatas}`);
+
 /**
  *  ###########################
  *  ## E J E R C I C I O   8 ##
@@ -242,6 +305,37 @@ const countries = [
  *  Array con las personas que tienen animales de 4 patas
  *
  */
+let mascotasCuatroPatas= animals.filter(item => {
+  console.log(item.type);
+  if(item.legs===4){
+    return item.type;
+  }
+});
+mascotasCuatroPatas= mascotasCuatroPatas.map(item => {return item.type});
+console.log(mascotasCuatroPatas);
+
+const nombresMascotas4Patas= [];
+for(let item of pets){
+  for(let element of mascotasCuatroPatas){
+    if (item.type===element){
+      nombresMascotas4Patas.push(item.petName);
+    }
+  }
+}
+console.log('Nombres de las mascotas de 4 patas: '+ nombresMascotas4Patas);
+
+const arrayPersonasConMascotas4Patas= [];
+for(let item of persons){
+  for(let element of nombresMascotas4Patas){
+  
+    if (item.petName===element){
+      arrayPersonasConMascotas4Patas.push(item);
+    }
+  }
+}
+console.log("Array de las personas con mascotas de 4 patas");
+console.log(arrayPersonasConMascotas4Patas);
+
 
 /**
  *  ###########################
