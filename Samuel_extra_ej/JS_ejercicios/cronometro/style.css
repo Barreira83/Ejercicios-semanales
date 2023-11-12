@@ -1,0 +1,66 @@
+  * {
+    margin: 0;
+    padding: 0;
+   }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(imagenes/madera.jpeg) no-repeat center center/ cover;
+    text-align: center;
+  
+  }
+  /*Centra los elementos en el eje verticarl y horizontal*/
+  .contenedor-principal{
+    width: 80vw;
+    max-width: 600px;
+    min-height: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+  
+  /* Contenedor*/
+  .contenedor-botones {   
+    padding: 20px;  
+  }
+
+  /* Cronometro */
+  #cronometro {
+    width: 100%;
+    font-size: 80px;
+    font-weight: bold;
+    user-select: none;
+    font-family: 'Noto Sans Thai', sans-serif;
+  }
+
+  /* botones */
+
+  .boton {
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer; /*Muestra una mano al pasar por encima del boton */
+  }
+
+ /* Bootstrap */
+ #boton-inicio-pausa.iniciar,
+ #boton-inicio-pausa.iniciar i {
+  background-color: #08e008;
+ }
+
+ #boton-inicio-pausa.pausar,
+ #boton-inicio-pausa.pausar i {
+  background-color: #ffdc00;
+ }
+
+ #boton-reiniciar {
+  background-color: red;
+ }
+ 

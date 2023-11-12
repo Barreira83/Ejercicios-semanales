@@ -1,0 +1,136 @@
+const titulo = document.getElementById('titulo');
+console.log(titulo.tagName);
+
+const toppings= document.getElementsByClassName('topping');
+console.log(toppings[1].id);
+
+const misToppings=document.getElementsByTagName('li');
+console.log(misToppings);
+
+const aceitunas= document.querySelector('.topping.fondo-naranja');
+console.log(aceitunas);
+
+const primerToppingNaranja= document.querySelector('ul li.fondo-naranja');
+console.log(primerToppingNaranja);
+
+const primerToppingNoMarron= document.querySelectorAll('ul li:not(.fondo-marron)');
+console.log(primerToppingNoMarron[0]);
+
+/*Asignar estilos con javascript*/
+
+const primerTopping = document.querySelector('.topping');
+console.log(primerTopping.style);
+
+primerTopping.style.backgroundColor='blue';
+primerTopping.style.color='#6dff00';
+primerTopping.style.textTransform= 'uppercase';
+
+/*obener el texto de un elemento*/
+const listaDeToppings= document.getElementById('lista-toppings');
+console.log(listaDeToppings.innerText);
+console.log(listaDeToppings.textContent);
+console.log(listaDeToppings.innerHTML);
+
+/*cambiar el texto*/
+
+const titulo= document.getElementById('titulo');
+titulo.innerText='Mis Toppings Favoritos';
+
+/*Cambiar atributos*/
+
+const enlaces = document.getElementsByTagName('a');
+console.log(enlaces[0].getAttribute('href'));
+enlaces[0].setAttribute('href', 'https://www.freecodecamp.org');
+
+/*Agregar una clase o modificarla*/
+
+const primerTopping= document.querySelector('.topping');
+
+primerTopping.classList.add('texto-verde');
+console.log(primerTopping.classList);
+
+/*verificar si una clase existe */   
+
+console.log(primerTopping.classList.contains('fondo-azul'));
+
+primerTopping.classList.remove('topping');
+
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="imagenes/favicon.png">
+    <title>Mis toppings</title>
+
+  </head>
+<body>
+  <div id="contenedor">
+    <h1 id="titulo">🍕 <br>Toppings de pizza</h1>
+    <ul id="lista-toppings">
+      <li class="topping fondo-marron" id="aceitunas">Aceitunas</li>
+      <li class="topping fondo-naranja" id="cebollas">Cebollas</li>
+      <li class="topping fondo-marron" id="albahaca">Albahaca</li>
+      <li class="topping fondo-naranja" id="champiñones">Champiñones</li>
+
+    </ul>
+    <a href="https://www.freecodecamp.org/espanol/">FreeCodeCamp en español</a>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
+
+
+//Agregar cosas y sus propiedades en app.js
+
+const listaDeToppings =document.getElementById('lista-toppings');
+
+const toppingsNuevo = document.createElement('li');
+
+toppingsNuevo.classList.add('topping','fondo-marron');
+toppingsNuevo.innerText = 'Queso extra';
+
+listaDeToppings.append(toppingsNuevo);
+
+
+
+console.log(listaDeToppings.parentElement.parentElement);
+
+console.log(listaDeToppings.firstElementChild);
+
+
+
+
+//Eventos del cursor
+/*Conceptos importantes
+    elementos target (blanco) --> Seleccionamos el blanco
+    trigger --> Desencadenar Hacemos click
+    event Handler --> Funcion que se ejecuta cuando ocurre un evento
+    event Listener --> Escuchador de eventos que ejecutan funciones
+
+function mostrarClic(topping) {
+console.log(topping);
+}
+*/
+
+//Para esto hay que añadir un atributo onclick="aceitunas" para cada lista de toppings
+const toppings =document.getElementsByClassName('topping');
+
+function mostrarClic(e) {
+    console.log(e.target.innerText);
+}
+//Esto es lo que crea la asociacion entre el evento y la funcion
+//albahaca.addEventListener('click', mostrarClic);
+
+//De esta manera se recorren los toppings y asigna onclick a cada uno
+for (const topping of toppings) {
+  topping.addEventListener('click', mostrarClic);
+  //console.log(topping);
+}
+

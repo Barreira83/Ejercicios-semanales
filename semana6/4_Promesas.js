@@ -39,3 +39,18 @@ myPromise
   .then((resultado) => console.log(resultado))
   .catch((resultado) => console.error(resultado))
   .finally(() => console.log("¡Prueba completada!"))
+
+
+
+  //Resuelto por samu
+
+myFuncion()
+    .then((data)=>{
+      console.log(data);
+    })
+    .catch((error)=>{
+      console.error(error)
+    })
+    .finally(()=>{
+      console.log("¡Prueba completada!");
+    })

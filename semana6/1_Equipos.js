@@ -26,7 +26,7 @@ function buscaElMejor(arr) {
   let x = arr.reduce((x, y) => (x > y ? x : y));
   console.log(x);
   let indice = arr.findIndex((element) => element === x);
-  console.log(indice);
+  console.log("Indice: "+indice);
 
   return indice;
 }
@@ -36,7 +36,7 @@ function buscaElPeor(arr) {
   let x = arr.reduce((x, y) => (x < y ? x : y));
   console.log(x);
   let indice = arr.findIndex((element) => element === x);
-  console.log(indice);
+  console.log("Indice: "+indice);
 
   return indice;
 }
@@ -45,3 +45,61 @@ const indiceDelPeor = buscaElPeor(puntosTotales);
 console.log(`El mejor equipo es ${firstRound[indiceDelMejor].team} con un total de ${puntosTotales[indiceDelMejor]} puntos`);
 
 console.log(`El peor equipo es ${firstRound[indiceDelPeor].team} con un total de ${puntosTotales[indiceDelPeor]} puntos`);
+
+
+//Resuelto por Samu
+console.log('Resuelto por Samu-------------------------------------------------');
+const firstRoundWithtTotalScores = firstRound.map((object)=> {
+  const scoresSum =object.scores.reduce((acc, score)=> {
+    return acc +score;
+  },0);
+  return {
+    team: object.team,
+    scores: scoresSum, 
+  };
+});
+
+firstRoundWithtTotalScores.sort((a,b)=> {
+  return a.scores -b.scores;
+});
+console.log(firstRoundWithtTotalScores);
+
+const worst= firstRoundWithtTotalScores[0];
+const best= firstRoundWithtTotalScores[firstRoundWithtTotalScores.length-1];
+
+console.log(
+  `El mejor equipo es ${best.team} con un total de ${best.scores} puntos`
+);
+
+console.log(
+  `El peor equipo es ${worst.team} con un total de ${worst.scores} puntos`
+);
+
+
+console.log('Resuelto por Samu segunda forma-------------------------------------------------');
+
+let best2= {team:"", scores: 0};
+let worst2 = {team:"", scores: Infinity};// si fuese 0 ya seria el peor
+
+for (const objeto of firstRound){
+  const totalScores = objeto.scores.reduce((acc, scores)=> acc + scores, 0);
+
+  if(totalScores > best2.scores){
+    //best= objeto;             //Guardo el objeto entero en variable best
+    //  best = {{team2:objeto.team, scores: totalScores};}
+    best2= { ...objeto, scores: totalScores};
+  }
+}
+
+  if(totalScores < worst2.scores){  
+    worst2= { ...objeto, scores: totalScores};
+  }
+
+
+console.log(
+  `El mejor equipo es ${best2.team} con un total de ${best2.scores} puntos`
+);
+
+console.log(
+  `El peor equipo es ${worst2.team} con un total de ${worst2.scores} puntos`
+);

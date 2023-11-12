@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../freecode_ejercicios"
+		},
+		{
+			"path": "../../fcc_bootstrap_gatos"
+		},
+		{
+			"path": "../../Python"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "DOM"
+	}
+}

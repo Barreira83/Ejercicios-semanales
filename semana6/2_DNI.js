@@ -10,6 +10,7 @@ Para esto tienes que usar throw, el objeto Error de JavaScript y try/catch
 
 
 */
+
 function validateDNI(dni) {
     const letras = [
       "T",
@@ -45,7 +46,7 @@ function validateDNI(dni) {
       throw new Error(
         'ERROR: el DNI tiene que ser una cadena de texto de 10 caracteres (guión incluido)'
       );
-      return;
+      return;//Sobra el return porque el throw ya te saca de la funcion
     }
   
     // separo el DNI por el guión
@@ -55,8 +56,7 @@ function validateDNI(dni) {
     if (dniArray.length !== 2) {
       throw new Error(
         "ERROR: el DNI tiene que llevar uno y un sólo '-'"
-      );
-      return;
+      );      
     }
   
     const [numeros, letra] = dniArray;
@@ -65,42 +65,41 @@ function validateDNI(dni) {
     if (numeros.length !== 8 || isNaN(numeros)) {
       throw new Error(
         "ERROR: la primera parte del DNI tiene que ser compuesta por 8 números"
-      );
-      return;
+      );    
     }
   
     // compruebo que el último carácter sea una letra
     if (!isNaN(parseInt(letra))) {
       throw new Error(
         "ERROR: el último carácter del DNI tiene que ser una letra"
-      );
-      return;
+      );    
     }
   
     // compruebo que la letra sea valida
     if (letra.toUpperCase() !== letras[numeros % 23]) {
       throw new Error("ERROR: la letra del DNI no es valida");
-      return;
     }
       // DNI es valido
       console.log(`DNI valido`);
 }
 catch (error){
   console.log(error);
+  //console.error("ERROR: " + error.massage);
   //console.log(`${error.name}: ${error.massage}`); //El mensaje es undefine
+}  
 }
-
-
-  
-  }
   
   // dni valido
   validateDNI("00000000-T");
   
   // descomentar y comprobar los errores
-  //validateDNI("00000000-TT");
-  //validateDNI("00000000TT");
-  //validateDNI("00000A00-T");
-  //validateDNI("00000000-9");
-  //validateDNI("00000000-A");
+  validateDNI("00000000-TT");
+  validateDNI("00000000TT");
+  validateDNI("00000A00-T");
+  validateDNI("00000000-9");
+  validateDNI("00000000-A");
+
   
+  
+
+
