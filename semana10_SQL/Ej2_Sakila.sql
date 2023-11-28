@@ -10,7 +10,7 @@ SELECT AVG(length) FROM film;
 SELECT title AS "Pelicula" FROM film WHERE rating="PG" AND length > 120;
 
 -- Número total de apellidos distintos entre todos los actores.
-SELECT distinct last_name FROM actor;
+SELECT COUNT(distinct last_name) FROM actor;
 
 -- Ciudad en la que vive el cliente "Sandra Martin" (utilizando JOIN).
 SELECT c.city FROM city c 
