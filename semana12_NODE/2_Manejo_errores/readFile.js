@@ -5,7 +5,7 @@ const app =express();
 
 app.use(express.json());
 
-export const leerNota = async (req, res)=>{
+export const leerNota = async (req, res, next)=>{
 try{
     const {messageId} = req.params;
      console.log(messageId);
@@ -23,13 +23,12 @@ try{
     if(objetoID !== undefined){
         res.json(objetoID.text);
     }else{
-        throw new Error ('Mensaje no encontrado');
-        res.send('No encontrado');
+        throw new Error ('Mensaje no encontrado');       
     
     }
     
 }catch (error){
-    console.error(error);
+    next(error);
 
 }
 
