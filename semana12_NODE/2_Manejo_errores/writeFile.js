@@ -8,7 +8,7 @@ const app =express();
 app.use(express.json());
 
 
-export const añadirNota = async (req, res, next)=>{
+export const addNote = async (req, res, next)=>{
     try{
 
     let obj=[]; 
