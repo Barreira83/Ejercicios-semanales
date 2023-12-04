@@ -2,23 +2,23 @@ import express from 'express';
 import fs from 'fs/promises';
 import { randomUUID } from 'crypto';
 
-
 const app =express();
-
 app.use(express.json());
-
 
 export const addNote = async (req, res)=>{
     try{
 
     let obj=[]; 
 
-    //Falta condicion por si es la 1 vez y el archivo no existe
-    //if(fs.existsSync('./data/messages.json')){
-        const json_notes = await fs.readFile('./data/messages.json', 'utf-8');  
-        obj=JSON.parse(json_notes);
-        console.log(obj);
-    //}
+        try{
+            const json_notes = await fs.readFile('./data/messages.json', 'utf-8');    
+            obj=JSON.parse(json_notes);
+        }catch(err){
+            await fs.mkdir('./data');
+        
+        }     
+        console.log(obj);   
+
 
     const {text}= req.body;
      const id=randomUUID();  
