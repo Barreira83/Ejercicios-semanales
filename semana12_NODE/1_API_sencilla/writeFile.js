@@ -14,9 +14,9 @@ export const addNote = async (req, res)=>{
             const json_notes = await fs.readFile('./data/messages.json', 'utf-8');    
             obj=JSON.parse(json_notes);
         }catch(err){
-            await fs.mkdir('./data');
-        
+            await fs.mkdir('./data');        
         }     
+        
         console.log(obj);   
 
 
