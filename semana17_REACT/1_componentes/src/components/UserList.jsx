@@ -2,9 +2,6 @@
 import PropTypes from "prop-types";
  import { User } from './User'
 
-
-
-
 export const UserList =({usuarios}) => {
 
     return (
@@ -20,15 +17,11 @@ export const UserList =({usuarios}) => {
                         direccion={user.location}
                         edad={user.dob.age}
                      />                    
-                </li>
-                
+                </li>                
             )})
             }
-        </ul>    
-    
-
+        </ul> 
         </>
-    
 )
 }
 

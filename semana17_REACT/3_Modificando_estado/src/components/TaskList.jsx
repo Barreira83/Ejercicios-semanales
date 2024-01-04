@@ -6,7 +6,8 @@
         const nuevaLista=[ ...tasks];                
             nuevaLista.map((item) => {
                 if(Number(item.id)=== Number(e.target.id)){                        
-                    item.done=true;                        
+                    // item.done=true;   
+                    item.done=!item.done;                        
                 }
             })       
         setTareas(nuevaLista);   
